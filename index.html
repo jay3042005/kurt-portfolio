@@ -1,0 +1,2413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Portfolio: Media &amp; Information Literacy</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --hero-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --card-gradient: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            --primary-blue: #667eea;
+            --primary-purple: #764ba2;
+            --primary-teal: #00f2fe;
+            --light-blue: #e0e7ff;
+            --dark-gray: #1e293b;
+            --medium-gray: #475569;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+            --text-secondary: #64748b;
+            --shadow-primary: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: var(--hero-gradient);
+            padding: 100px 0 80px;
+            text-align: center;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInDown 1s ease-out 0.3s forwards;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://pplx-res.cloudinary.com/image/upload/v1758660284/pplx_project_search_images/c4beb1f3d7b7730ae4c6a08e6d9e42c794384262.png') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .hero-info {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+
+        .hero-image {
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeInScale 1.2s ease-out 0.8s forwards;
+        }
+
+        .hero-image img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-primary);
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: perspective(1000px) rotateX(0deg) scale(1.02);
+        }
+
+        /* Section Backgrounds */
+        .first-grading {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .section-divider-image {
+            position: relative;
+            height: 400px;
+            background: url('https://pplx-res.cloudinary.com/image/upload/v1758660284/pplx_project_search_images/c4beb1f3d7b7730ae4c6a08e6d9e42c794384262.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 100px 0;
+        }
+
+        .section-divider-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+        }
+
+        .divider-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .divider-content h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .divider-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .second-grading {
+            background: var(--primary-gradient);
+            position: relative;
+        }
+
+        .second-grading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('https://pplx-res.cloudinary.com/image/upload/v1760885252/pplx_project_search_images/72ee44932503656d3d7c54a9952c57424cfe3a0e.png') center/contain no-repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .second-grading .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .second-grading .section-title,
+        .second-grading .section-subtitle {
+            color: white;
+        }
+
+        .second-grading .section-title::after {
+            background: white;
+        }
+
+        /* Grading Sections */
+        .grading-section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .grading-section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Lessons Grid */
+        .lessons-grid {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        }
+
+        .lesson-card {
+            background: var(--card-gradient);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            animation-fill-mode: forwards;
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .lesson-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .lesson-card::after {
+            content: 'Click for details';
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 0.75rem;
+            color: var(--primary-blue);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-weight: 600;
+        }
+
+        .lesson-card:hover::after {
+            opacity: 1;
+        }
+
+        .lesson-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .lesson-card.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .lesson-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--primary-blue);
+            stroke-width: 2;
+        }
+
+        .floating-element svg {
+            stroke: white;
+            opacity: 0.8;
+        }
+
+        .lesson-number {
+            background: var(--primary-gradient);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+
+        .lesson-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .lesson-points {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lesson-points li {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .lesson-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .lesson-points li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Loading Animation */
+        .loading-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--hero-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-animation.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            margin: 20px;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-icon svg {
+            stroke: white;
+            width: 35px;
+            height: 35px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .close-modal {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-section {
+            margin-bottom: 30px;
+        }
+
+        .modal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .modal-section-content {
+            color: var(--medium-gray);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .modal-section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .modal-section-content ul li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .modal-section-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-section-content ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .modal-image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .modal-diagram {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .modal-diagram-title {
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .process-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 120px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .process-step:last-child::after {
+            content: '';
+        }
+
+        .process-step-title {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .process-step-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .lessons-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .lesson-card {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section-divider-image {
+                height: 300px;
+                margin: 60px 0;
+            }
+
+            .divider-content h3 {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10px;
+            }
+
+            .modal-header {
+                padding: 20px 25px;
+            }
+
+            .modal-title {
+                font-size: 1.3rem;
+            }
+
+            .modal-body {
+                padding: 25px;
+            }
+
+            .process-flow {
+                flex-direction: column;
+            }
+
+            .process-step {
+                width: 100%;
+            }
+
+            .process-step::after {
+                content: '↓';
+                right: auto;
+                top: auto;
+                bottom: -25px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .grading-section {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 50px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .lessons-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .lesson-card {
+                padding: 20px;
+            }
+
+            .lesson-icon {
+                font-size: 2rem;
+            }
+
+            .lesson-icon svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .lesson-title {
+                font-size: 1.2rem;
+            }
+
+            .section-divider-image {
+                height: 200px;
+                margin: 40px 0;
+            }
+
+            .divider-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-animation" id="loadingAnimation">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-element">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </div>
+        <div class="floating-element">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+        </div>
+        <div class="floating-element">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>My E-Portfolio: Media &amp; Information Literacy</h1>
+                <p class="hero-subtitle">Grade 12</p>
+                <p class="hero-info">Student: Kurt Dela Cruz | Teacher: Lovely Mae Ycay</p>
+                <div class="hero-image">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1760885252/pplx_project_search_images/72ee44932503656d3d7c54a9952c57424cfe3a0e.png" 
+                         alt="Digital classroom learning illustration" 
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- First Grading Lessons -->
+    <section class="grading-section first-grading" id="first-grading">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">FIRST GRADING LESSONS</h2>
+                <p class="section-subtitle">Foundation concepts in media and communication literacy - building essential digital citizenship skills</p>
+            </div>
+            <div class="lessons-grid">
+                <div class="lesson-card" data-lesson="media-communication">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                        </span>
+                        <span class="lesson-number">1</span>
+                    </div>
+                    <h3 class="lesson-title">Media and Communication</h3>
+                    <ul class="lesson-points">
+                        <li>Shannon-Weaver Model: Known as the mother of all communication models</li>
+                        <li>Elements: Information source, Transmitter, Channel, Receiver, Destination</li>
+                        <li>Components: Sender, Encoder, Decoder, Receiver, Noise, Feedback</li>
+                        <li>Foundation for understanding how information flows between parties</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="technology-literacy">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </span>
+                        <span class="lesson-number">2</span>
+                    </div>
+                    <h3 class="lesson-title">Technology Literacy</h3>
+                    <ul class="lesson-points">
+                        <li>Ability to use digital technology, communication tools, and networks</li>
+                        <li>Skills: Locate, evaluate, use, and create information</li>
+                        <li>Etymology: From Greek 'techne' (art/skill/craft) + 'logos' (word/reason/discourse)</li>
+                        <li>Systematic study and application of techniques and tools</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="responsible-use">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"></line><path d="M12 18a6 6 0 0 0 6-6H6a6 6 0 0 0 6 6z"></path><line x1="6" y1="12" x2="18" y2="12"></line><line x1="12" y1="18" x2="12" y2="22"></line></svg>
+                        </span>
+                        <span class="lesson-number">3</span>
+                    </div>
+                    <h3 class="lesson-title">Responsible Use of Media and Information</h3>
+                    <ul class="lesson-points">
+                        <li>Flame War: Series of angry, disparaging comments in ongoing online arguments</li>
+                        <li>Importance of respectful digital communication</li>
+                        <li>Understanding netiquette and online behavior</li>
+                        <li>Consequences of irresponsible media use</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="media-evolution">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        </span>
+                        <span class="lesson-number">4</span>
+                    </div>
+                    <h3 class="lesson-title">Evolution from Traditional to New Media</h3>
+                    <ul class="lesson-points">
+                        <li>Electronic Age: Began with electronic equipment including computers</li>
+                        <li>Transition from print to digital media platforms</li>
+                        <li>Evolution of communication technologies</li>
+                        <li>Impact on information dissemination and access</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="information-sources">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>
+                        </span>
+                        <span class="lesson-number">5</span>
+                    </div>
+                    <h3 class="lesson-title">Media and Information Sources</h3>
+                    <ul class="lesson-points">
+                        <li>Newspaper: Printed/distributed daily or weekly with news, opinions, features, advertising</li>
+                        <li>Magazine: Printed or digital collection of texts (essays, articles, stories, poems) at regular intervals</li>
+                        <li>Media: Means of communication that reach or influence people widely</li>
+                        <li>Understanding different formats and their purposes</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="technical-sources">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect width="14" height="12" x="2" y="6" rx="2" ry="2"></rect></svg>
+                        </span>
+                        <span class="lesson-number">6</span>
+                    </div>
+                    <h3 class="lesson-title">Media and Information Sources (Technical)</h3>
+                    <ul class="lesson-points">
+                        <li>AVR Section: Provides audio-visual support services</li>
+                        <li>Facilitates teaching and learning processes</li>
+                        <li>Technical infrastructure for media delivery</li>
+                        <li>Program structure and instruction systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider-image">
+        <div class="divider-content">
+            <h3>Advancing to Second Grading</h3>
+            <p>Exploring advanced multimedia concepts and interactive technologies</p>
+        </div>
+    </div>
+
+    <!-- Second Grading Lessons -->
+    <section class="grading-section second-grading" id="second-grading">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SECOND GRADING LESSONS</h2>
+                <p class="section-subtitle">Advanced media literacy and interactive digital content creation - mastering multimedia technologies</p>
+            </div>
+            <div class="lessons-grid">
+                <div class="lesson-card" data-lesson="cybercrime-challenges">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </span>
+                        <span class="lesson-number">1</span>
+                    </div>
+                    <h3 class="lesson-title">Opportunities and Challenges in Media</h3>
+                    <ul class="lesson-points">
+                        <li>Cybercrime: Criminal activity involving internet, computer systems, or technology</li>
+                        <li>Threats: Hacking, identity theft, data breaches</li>
+                        <li>Digital safety and security awareness</li>
+                        <li>Balancing opportunities with risk management</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="blended-learning">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                        </span>
+                        <span class="lesson-number">2</span>
+                    </div>
+                    <h3 class="lesson-title">Blended Learning &amp; Current Trends</h3>
+                    <ul class="lesson-points">
+                        <li>Blended Learning: Combination of classroom learning and online learning</li>
+                        <li>Platforms: Zoom, Google Meet, Microsoft Teams, Cisco Webex</li>
+                        <li>Style of education via electronic and online media</li>
+                        <li>Future trends in media and information delivery</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="media-literate">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </span>
+                        <span class="lesson-number">3</span>
+                    </div>
+                    <h3 class="lesson-title">Media and Information Literate Individual</h3>
+                    <ul class="lesson-points">
+                        <li>Improved learning environments through digital sources</li>
+                        <li>Popular platforms: Yahoo, Wikipedia, Facebook, Google, Twitter, LinkedIn, YouTube</li>
+                        <li>Making learning a choice through accessible information</li>
+                        <li>Top websites for information and knowledge sharing</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="text-media">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                        </span>
+                        <span class="lesson-number">4</span>
+                    </div>
+                    <h3 class="lesson-title">Text Information and Media</h3>
+                    <ul class="lesson-points">
+                        <li>Emphasis: Importance or value given to text-based content</li>
+                        <li>Typography: Design and arrangement of text</li>
+                        <li>Elements: Fonts, spacing, alignment, color, creativity</li>
+                        <li>Text as fundamental medium for information delivery</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="visual-media">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                        </span>
+                        <span class="lesson-number">5</span>
+                    </div>
+                    <h3 class="lesson-title">Visual Media and Information</h3>
+                    <ul class="lesson-points">
+                        <li>Design Elements: Line, Shape, Value</li>
+                        <li>Visual communication principles</li>
+                        <li>Creating effective visual messages</li>
+                        <li>Understanding visual literacy</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="audio-media">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"></path><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"></path><circle cx="12" cy="12" r="2"></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"></path><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"></path></svg>
+                        </span>
+                        <span class="lesson-number">6</span>
+                    </div>
+                    <h3 class="lesson-title">Audio Information and Media</h3>
+                    <ul class="lesson-points">
+                        <li>Radio Broadcast: Live or recorded audio sent through waves</li>
+                        <li>Reaches wide audiences effectively</li>
+                        <li>Audio as information delivery medium</li>
+                        <li>Sound-based communication channels</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="motion-media">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 3v18"></path><path d="M3 7.5h4"></path><path d="M3 12h18"></path><path d="M3 16.5h4"></path><path d="M17 3v18"></path><path d="M17 7.5h4"></path><path d="M17 16.5h4"></path></svg>
+                        </span>
+                        <span class="lesson-number">7</span>
+                    </div>
+                    <h3 class="lesson-title">Motion Media and Information</h3>
+                    <ul class="lesson-points">
+                        <li>Motion Media: Visual media that gives appearance of movement</li>
+                        <li>Video content and animation</li>
+                        <li>Dynamic storytelling through motion</li>
+                        <li>Engagement through moving images</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="interactive-media">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+                        </span>
+                        <span class="lesson-number">8</span>
+                    </div>
+                    <h3 class="lesson-title">Manipulative/Interactive Media</h3>
+                    <ul class="lesson-points">
+                        <li>Media Platform: Service or method that delivers media to audiences</li>
+                        <li>Examples: TikTok, Snapchat, Reddit, YouTube, Digg</li>
+                        <li>Interactive and participatory content</li>
+                        <li>User-generated and social media</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="multimedia">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </span>
+                        <span class="lesson-number">9</span>
+                    </div>
+                    <h3 class="lesson-title">Multimedia Information and Media</h3>
+                    <ul class="lesson-points">
+                        <li>Static Media: Content that does not change</li>
+                        <li>Dynamic Media: Content constantly updated and interactive</li>
+                        <li>Digital advertising channels (60% audience preference)</li>
+                        <li>Categories: Display ads, social media ads, retargeting, video ads</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="media-dimensions">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+                        </span>
+                        <span class="lesson-number">10</span>
+                    </div>
+                    <h3 class="lesson-title">Dimensions of Media</h3>
+                    <ul class="lesson-points">
+                        <li>Visual + Audio: Technology combining sound and visuals</li>
+                        <li>Audiovisual technology for information presentation</li>
+                        <li>Creating immersive experiences</li>
+                        <li>Multi-sensory media delivery</li>
+                    </ul>
+                </div>
+                <div class="lesson-card" data-lesson="evaluating-multimedia">
+                    <div class="lesson-header">
+                        <span class="lesson-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        </span>
+                        <span class="lesson-number">11</span>
+                    </div>
+                    <h3 class="lesson-title">Evaluating and Creating Multimedia</h3>
+                    <ul class="lesson-points">
+                        <li>Digital Library: Special library with focused collection of digital objects</li>
+                        <li>Producing creative media-based presentations</li>
+                        <li>Multimedia evaluation criteria</li>
+                        <li>Creating professional digital content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="lessonModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <div class="modal-icon" id="modalIcon"></div>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                </div>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // Loading animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingAnimation').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Intersection Observer for scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    
+                    // Animate lesson cards with stagger delay
+                    const cards = entry.target.querySelectorAll('.lesson-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate');
+                        }, index * 150); // 150ms delay between each card
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Enhanced scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.grading-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add smooth scrolling for any internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Floating elements animation
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 2}s`;
+            });
+        });
+
+        // Enhanced parallax effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            // Hero parallax
+            const heroImage = document.querySelector('.hero-image img');
+            if (heroImage && scrolled < window.innerHeight) {
+                heroImage.style.transform = `perspective(1000px) rotateX(${5 - (scrolled / window.innerHeight) * 5}deg) translateY(${rate * 0.3}px)`;
+            }
+
+            // Section divider parallax
+            const dividerImage = document.querySelector('.section-divider-image');
+            if (dividerImage) {
+                const rect = dividerImage.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                if (isVisible) {
+                    const parallaxOffset = (window.innerHeight - rect.top) * 0.3;
+                    dividerImage.style.backgroundPosition = `center ${parallaxOffset}px`;
+                }
+            }
+        });
+
+        // Add hover sound effect simulation (visual feedback)
+        document.querySelectorAll('.lesson-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Modal functionality
+        const lessonData = {
+            'media-communication': {
+                title: 'Media and Communication',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>',
+                content: `
+                    <div class="modal-image">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80" alt="Communication network visualization">
+                        <div class="modal-image-caption">Modern communication networks connecting people worldwide</div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Shannon-Weaver Model Overview</h3>
+                        <div class="modal-section-content">
+                            <p>The Shannon-Weaver Model, developed in 1948, is known as the "mother of all communication models." It established the foundation for understanding how information flows between parties in a communication system.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-diagram">
+                        <div class="modal-diagram-title">Communication Process Flow</div>
+                        <div class="process-flow">
+                            <div class="process-step">
+                                <div class="process-step-title">Information Source</div>
+                                <div class="process-step-desc">Origin of the message</div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-step-title">Transmitter</div>
+                                <div class="process-step-desc">Encodes the message</div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-step-title">Channel</div>
+                                <div class="process-step-desc">Medium of transmission</div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-step-title">Receiver</div>
+                                <div class="process-step-desc">Decodes the message</div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-step-title">Destination</div>
+                                <div class="process-step-desc">Final recipient</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Key Components</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li><strong>Sender:</strong> The person or entity initiating the communication</li>
+                                <li><strong>Encoder:</strong> Converts the message into signals that can be transmitted</li>
+                                <li><strong>Channel:</strong> The medium through which the message travels</li>
+                                <li><strong>Decoder:</strong> Interprets the received signals back into understandable information</li>
+                                <li><strong>Receiver:</strong> The person or entity who receives the message</li>
+                                <li><strong>Noise:</strong> Any interference that disrupts the communication process</li>
+                                <li><strong>Feedback:</strong> Response from the receiver back to the sender</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Practical Applications</h3>
+                        <div class="modal-section-content">
+                            <p>This model applies to various forms of communication including:</p>
+                            <ul>
+                                <li>Digital communication systems (email, messaging apps)</li>
+                                <li>Broadcasting (radio, television)</li>
+                                <li>Telephone conversations</li>
+                                <li>Social media interactions</li>
+                                <li>Face-to-face communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'technology-literacy': {
+                title: 'Technology Literacy',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+                content: `
+                    <div class="modal-image">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80" alt="People working with technology">
+                        <div class="modal-image-caption">Digital literacy in the modern workspace</div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Definition & Etymology</h3>
+                        <div class="modal-section-content">
+                            <p><strong>Technology Literacy</strong> is the ability to effectively use digital technology, communication tools, and networks to access, manage, integrate, evaluate, and create information.</p>
+                            <p><strong>Etymology:</strong> From Greek 'techne' (τέχνη) meaning art, skill, or craft, and 'logos' (λόγος) meaning word, reason, or discourse - together representing the systematic study and application of techniques and tools.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Core Skills</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li><strong>Locate:</strong> Ability to find relevant digital information efficiently</li>
+                                <li><strong>Evaluate:</strong> Critically assess the credibility and relevance of digital information</li>
+                                <li><strong>Use:</strong> Effectively utilize digital tools and technologies</li>
+                                <li><strong>Create:</strong> Produce original digital content and solutions</li>
+                                <li><strong>Communicate:</strong> Share information effectively through digital channels</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Why It Matters</h3>
+                        <div class="modal-section-content">
+                            <p>In today's digital age, technology literacy is essential for:</p>
+                            <ul>
+                                <li>Professional success and career advancement</li>
+                                <li>Effective communication and collaboration</li>
+                                <li>Informed decision-making</li>
+                                <li>Digital citizenship and online safety</li>
+                                <li>Lifelong learning and adaptation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Key Areas of Knowledge</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li>Operating systems and software applications</li>
+                                <li>Internet navigation and online research</li>
+                                <li>Digital communication tools</li>
+                                <li>Cybersecurity awareness</li>
+                                <li>Digital content creation</li>
+                                <li>Cloud computing and data management</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'responsible-use': {
+                title: 'Responsible Use of Media and Information',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"></line><path d="M12 18a6 6 0 0 0 6-6H6a6 6 0 0 0 6 6z"></path><line x1="6" y1="12" x2="18" y2="12"></line><line x1="12" y1="18" x2="12" y2="22"></line></svg>',
+                content: `
+                    <div class="modal-image">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80" alt="Digital ethics and responsibility">
+                        <div class="modal-image-caption">Responsible digital citizenship and online ethics</div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Understanding Digital Responsibility</h3>
+                        <div class="modal-section-content">
+                            <p>Responsible use of media and information involves understanding how our online actions affect ourselves and others, and making ethical choices in digital spaces.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Flame Wars: What They Are</h3>
+                        <div class="modal-section-content">
+                            <p><strong>Flame War:</strong> A series of angry, often insulting, and disparaging comments in an ongoing online argument. These can escalate quickly and create toxic online environments.</p>
+                            <p><strong>Characteristics:</strong></p>
+                            <ul>
+                                <li>Heated, emotional language</li>
+                                <li>Personal attacks rather than constructive dialogue</li>
+                                <li>Rapid escalation of conflict</li>
+                                <li>Often spreads to involve more participants</li>
+                                <li>Damages online community relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Digital Netiquette Rules</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li>Think before you post - consider the impact of your words</li>
+                                <li>Respect diverse opinions and perspectives</li>
+                                <li>Avoid sharing false or unverified information</li>
+                                <li>Protect personal privacy (yours and others')</li>
+                                <li>Give credit for others' work and ideas</li>
+                                <li>Use appropriate language and tone</li>
+                                <li>Report inappropriate content or behavior</li>
+                                <li>Be mindful of tone - text can be misinterpreted</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Consequences of Irresponsible Use</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li>Damaged personal and professional reputation</li>
+                                <li>Cyberbullying and emotional harm to others</li>
+                                <li>Legal consequences (defamation, harassment)</li>
+                                <li>Loss of trust and relationships</li>
+                                <li>Spread of misinformation</li>
+                                <li>Security and privacy breaches</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'media-evolution': {
+                title: 'Evolution from Traditional to New Media',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>',
+                content: `
+                    <div class="modal-image">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80" alt="Evolution of media from print to digital">
+                        <div class="modal-image-caption">The transformation from traditional to digital media</div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">The Electronic Age</h3>
+                        <div class="modal-section-content">
+                            <p>The Electronic Age began with the introduction of electronic equipment, including computers, which revolutionized how information is created, stored, and shared.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-diagram">
+                        <div class="modal-diagram-title">Media Evolution Timeline</div>
+                        <div class="process-flow">
+                            <div class="process-step">
+                                <div class="process-step-title">Print Era</div>
+                                <div class="process-step-desc">Newspapers, Books, Magazines</div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-step-title">Broadcast Era</div>
+                                <div class="process-step-desc">Radio, Television</div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-step-title">Digital Era</div>
+                                <div class="process-step-desc">Internet, Websites, Email</div>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-step-title">Social Media Era</div>
+                                <div class="process-step-desc">Interactive Platforms, User Content</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Traditional vs. New Media</h3>
+                        <div class="modal-section-content">
+                            <p><strong>Traditional Media:</strong></p>
+                            <ul>
+                                <li>One-way communication</li>
+                                <li>Limited audience interaction</li>
+                                <li>Fixed publication schedules</li>
+                                <li>Geographic limitations</li>
+                                <li>High production costs</li>
+                            </ul>
+                            <p><strong>New Media:</strong></p>
+                            <ul>
+                                <li>Two-way, interactive communication</li>
+                                <li>Instant audience feedback and engagement</li>
+                                <li>24/7 real-time updates</li>
+                                <li>Global reach</li>
+                                <li>Lower barriers to entry</li>
+                                <li>User-generated content</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Impact on Society</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li>Democratization of information access</li>
+                                <li>Faster information dissemination</li>
+                                <li>New business models and industries</li>
+                                <li>Changed consumer behavior</li>
+                                <li>Global connectivity and collaboration</li>
+                                <li>New challenges (misinformation, privacy concerns)</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'information-sources': {
+                title: 'Media and Information Sources',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>',
+                content: `
+                    <div class="modal-image">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80" alt="Newspapers and magazines">
+                        <div class="modal-image-caption">Traditional and digital media sources</div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Types of Media Sources</h3>
+                        <div class="modal-section-content">
+                            <p><strong>Newspaper:</strong> Printed publication distributed daily or weekly containing news, opinions, features, and advertising. Newspapers remain important sources of in-depth local and international news coverage.</p>
+                            <p><strong>Magazine:</strong> Printed or digital collection of texts (essays, articles, stories, poems, etc.) published at regular intervals. Magazines typically focus on specific topics or interests.</p>
+                            <p><strong>Media:</strong> Any means of communication that reach or influence people widely, including print, broadcast, and digital platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Characteristics of Quality Sources</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li><strong>Authority:</strong> Created by credible, qualified authors or organizations</li>
+                                <li><strong>Accuracy:</strong> Information is verified, factual, and error-free</li>
+                                <li><strong>Objectivity:</strong> Presents balanced viewpoints with minimal bias</li>
+                                <li><strong>Currency:</strong> Information is up-to-date and relevant</li>
+                                <li><strong>Coverage:</strong> Provides comprehensive information on the topic</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Evaluating Information Sources</h3>
+                        <div class="modal-section-content">
+                            <p>When evaluating information sources, ask these questions:</p>
+                            <ul>
+                                <li>Who created this information? What are their credentials?</li>
+                                <li>What is the purpose of this information?</li>
+                                <li>When was this information published or updated?</li>
+                                <li>Where does the information come from?</li>
+                                <li>Why was this information created?</li>
+                                <li>How is the information supported? Are there citations?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Primary vs. Secondary Sources</h3>
+                        <div class="modal-section-content">
+                            <p><strong>Primary Sources:</strong> Original, firsthand accounts or direct evidence (research papers, historical documents, interviews)</p>
+                            <p><strong>Secondary Sources:</strong> Analysis, interpretation, or summary of primary sources (textbooks, news articles, reviews)</p>
+                        </div>
+                    </div>
+                `
+            },
+            'technical-sources': {
+                title: 'Media and Information Sources (Technical)',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect width="14" height="12" x="2" y="6" rx="2" ry="2"></rect></svg>',
+                content: `
+                    <div class="modal-image">
+                        <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&q=80" alt="Audio visual equipment">
+                        <div class="modal-image-caption">Modern audio-visual technology in education</div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Audio-Visual Resources (AVR) Section</h3>
+                        <div class="modal-section-content">
+                            <p>The AVR Section provides comprehensive audio-visual support services that facilitate teaching and learning processes through technical infrastructure and multimedia delivery systems.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Technical Infrastructure Components</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li><strong>Hardware:</strong> Projectors, screens, audio systems, cameras, computers</li>
+                                <li><strong>Software:</strong> Presentation tools, video editing, streaming platforms</li>
+                                <li><strong>Connectivity:</strong> Network infrastructure, internet access, wireless systems</li>
+                                <li><strong>Storage:</strong> Digital libraries, cloud storage, media servers</li>
+                                <li><strong>Support:</strong> Technical assistance, training, maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Services Provided</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li>Equipment lending and setup</li>
+                                <li>Recording and streaming services</li>
+                                <li>Media production and editing</li>
+                                <li>Technical training and workshops</li>
+                                <li>Classroom technology support</li>
+                                <li>Digital content management</li>
+                                <li>Accessibility services (captions, transcripts)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Benefits for Learning</h3>
+                        <div class="modal-section-content">
+                            <ul>
+                                <li>Enhanced engagement through multimedia content</li>
+                                <li>Accommodates different learning styles</li>
+                                <li>Enables remote and hybrid learning</li>
+                                <li>Facilitates content preservation and sharing</li>
+                                <li>Supports collaborative projects</li>
+                                <li>Improves accessibility for diverse learners</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            // Continue with more lesson data...
+        };
+
+        // Add more lesson data
+        lessonData['cybercrime-challenges'] = {
+            title: 'Opportunities and Challenges in Media',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="Cybersecurity concept">
+                    <div class="modal-image-caption">Digital security and protecting against cyber threats</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Understanding Cybercrime</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Cybercrime:</strong> Criminal activity that involves the use of the internet, computer systems, or other technology. It represents one of the fastest-growing types of crime globally.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Common Types of Cybercrime</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li><strong>Hacking:</strong> Unauthorized access to computer systems or networks</li>
+                            <li><strong>Identity Theft:</strong> Stealing personal information to impersonate someone</li>
+                            <li><strong>Data Breaches:</strong> Unauthorized access and theft of sensitive data</li>
+                            <li><strong>Phishing:</strong> Deceptive attempts to obtain sensitive information</li>
+                            <li><strong>Malware:</strong> Malicious software designed to damage or infiltrate systems</li>
+                            <li><strong>Ransomware:</strong> Malware that locks systems until a ransom is paid</li>
+                            <li><strong>Cyber Stalking:</strong> Using technology to harass or threaten individuals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Protection Strategies</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li>Use strong, unique passwords for each account</li>
+                            <li>Enable two-factor authentication</li>
+                            <li>Keep software and systems updated</li>
+                            <li>Be cautious with email attachments and links</li>
+                            <li>Use reputable antivirus software</li>
+                            <li>Backup important data regularly</li>
+                            <li>Be aware of social engineering tactics</li>
+                            <li>Verify websites before entering personal information</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Balancing Opportunities with Risks</h3>
+                    <div class="modal-section-content">
+                        <p>While digital media offers tremendous opportunities for communication, learning, and business, it's essential to:</p>
+                        <ul>
+                            <li>Stay informed about current cyber threats</li>
+                            <li>Practice digital hygiene and security</li>
+                            <li>Educate others about online safety</li>
+                            <li>Report suspicious activities</li>
+                            <li>Maintain privacy settings</li>
+                            <li>Think critically about online content</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        // Add detailed content for remaining lessons
+        lessonData['blended-learning'] = {
+            title: 'Blended Learning & Current Trends',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=800&q=80" alt="Online learning">
+                    <div class="modal-image-caption">Modern blended learning combining online and classroom education</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">What is Blended Learning?</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Blended Learning:</strong> An educational approach that combines traditional classroom learning with online learning methods, creating a flexible and comprehensive learning experience.</p>
+                        <p>This style of education leverages electronic and online media while maintaining the benefits of face-to-face instruction.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Popular Platforms</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li><strong>Zoom:</strong> Video conferencing for live classes and meetings</li>
+                            <li><strong>Google Meet:</strong> Integrated with Google Workspace for seamless collaboration</li>
+                            <li><strong>Microsoft Teams:</strong> Comprehensive platform for education with chat, video, and file sharing</li>
+                            <li><strong>Cisco Webex:</strong> Enterprise-level video conferencing and collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Benefits of Blended Learning</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li>Flexibility in time and location</li>
+                            <li>Personalized learning pace</li>
+                            <li>Access to digital resources and materials</li>
+                            <li>Develops digital literacy skills</li>
+                            <li>Encourages self-directed learning</li>
+                            <li>Combines best of both teaching methods</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Future Trends</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li>AI-powered personalized learning</li>
+                            <li>Virtual and Augmented Reality in education</li>
+                            <li>Gamification of learning content</li>
+                            <li>Mobile-first learning experiences</li>
+                            <li>Social learning and collaboration tools</li>
+                            <li>Analytics-driven learning insights</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['media-literate'] = {
+            title: 'Media and Information Literate Individual',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80" alt="Global information access">
+                    <div class="modal-image-caption">Accessing and evaluating information from worldwide sources</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Characteristics of Media Literacy</h3>
+                    <div class="modal-section-content">
+                        <p>A media and information literate individual has the ability to access, analyze, evaluate, create, and communicate information across various platforms and formats.</p>
+                        <p>They can navigate improved learning environments through digital sources and make informed choices about media consumption.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Popular Information Platforms</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li><strong>Google:</strong> Search engine and comprehensive information access</li>
+                            <li><strong>Wikipedia:</strong> Collaborative encyclopedia and knowledge base</li>
+                            <li><strong>YouTube:</strong> Video content for learning and entertainment</li>
+                            <li><strong>Facebook:</strong> Social networking and community building</li>
+                            <li><strong>Twitter:</strong> Real-time news and information sharing</li>
+                            <li><strong>LinkedIn:</strong> Professional networking and career development</li>
+                            <li><strong>Yahoo:</strong> News, email, and information portal</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Key Skills of Media Literate Individuals</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li>Critical thinking and analysis</li>
+                            <li>Fact-checking and verification</li>
+                            <li>Understanding media bias and perspectives</li>
+                            <li>Evaluating source credibility</li>
+                            <li>Creating responsible digital content</li>
+                            <li>Understanding privacy and security</li>
+                            <li>Ethical use of information</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Making Learning a Choice</h3>
+                    <div class="modal-section-content">
+                        <p>With accessible information at our fingertips, learning becomes a personal choice rather than a limitation. Media literacy empowers individuals to:</p>
+                        <ul>
+                            <li>Pursue self-directed learning</li>
+                            <li>Access diverse perspectives</li>
+                            <li>Engage with global communities</li>
+                            <li>Develop new skills independently</li>
+                            <li>Stay informed about world events</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['text-media'] = {
+            title: 'Text Information and Media',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80" alt="Typography and text design">
+                    <div class="modal-image-caption">The art and science of typography in digital media</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Understanding Text Media</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Emphasis:</strong> The importance or special value given to text-based content in communicating ideas, information, and messages.</p>
+                        <p>Text remains a fundamental medium for information delivery despite the rise of multimedia formats.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Typography: The Art of Text Design</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Typography:</strong> The design and arrangement of text to make it readable, attractive, and impactful.</p>
+                        <p><strong>Key Elements:</strong></p>
+                        <ul>
+                            <li><strong>Fonts:</strong> The style and appearance of characters (serif, sans-serif, script, etc.)</li>
+                            <li><strong>Spacing:</strong> Letter spacing, line height, and paragraph spacing</li>
+                            <li><strong>Alignment:</strong> Left, right, center, or justified text arrangement</li>
+                            <li><strong>Color:</strong> Text color and contrast with background</li>
+                            <li><strong>Hierarchy:</strong> Using size and weight to show importance</li>
+                            <li><strong>Creativity:</strong> Unique treatments and stylistic choices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Principles of Effective Text Media</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li><strong>Readability:</strong> Easy to read and understand</li>
+                            <li><strong>Legibility:</strong> Clear distinction between characters</li>
+                            <li><strong>Hierarchy:</strong> Clear visual order of information</li>
+                            <li><strong>Consistency:</strong> Uniform styling throughout</li>
+                            <li><strong>Contrast:</strong> Sufficient difference from background</li>
+                            <li><strong>White Space:</strong> Proper use of empty space</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Applications of Text Media</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li>Books and publications</li>
+                            <li>Websites and digital content</li>
+                            <li>Presentations and infographics</li>
+                            <li>Marketing materials and advertisements</li>
+                            <li>Social media posts and captions</li>
+                            <li>Educational materials</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['visual-media'] = {
+            title: 'Visual Media and Information',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Visual design elements">
+                    <div class="modal-image-caption">Visual communication through design elements and principles</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Design Elements</h3>
+                    <div class="modal-section-content">
+                        <p>Visual media relies on fundamental design elements to create effective communication:</p>
+                        <ul>
+                            <li><strong>Line:</strong> Creates structure, directs eye movement, conveys emotion</li>
+                            <li><strong>Shape:</strong> Defines objects, creates patterns, organizes space</li>
+                            <li><strong>Value:</strong> Lightness and darkness, creates depth and contrast</li>
+                            <li><strong>Color:</strong> Evokes emotion, creates mood, attracts attention</li>
+                            <li><strong>Texture:</strong> Surface quality, adds depth and interest</li>
+                            <li><strong>Space:</strong> Relationship between elements, creates balance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Visual Communication Principles</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li><strong>Balance:</strong> Visual weight distribution</li>
+                            <li><strong>Contrast:</strong> Differences that create emphasis</li>
+                            <li><strong>Emphasis:</strong> Focal points that draw attention</li>
+                            <li><strong>Movement:</strong> Guiding the viewer's eye</li>
+                            <li><strong>Pattern:</strong> Repetition creating visual interest</li>
+                            <li><strong>Unity:</strong> Cohesive visual harmony</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Creating Effective Visual Messages</h3>
+                    <div class="modal-section-content">
+                        <p>To create impactful visual media:</p>
+                        <ul>
+                            <li>Understand your audience and purpose</li>
+                            <li>Use appropriate colors and imagery</li>
+                            <li>Maintain visual hierarchy</li>
+                            <li>Keep designs simple and focused</li>
+                            <li>Ensure accessibility for all viewers</li>
+                            <li>Test effectiveness with target audience</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Understanding Visual Literacy</h3>
+                    <div class="modal-section-content">
+                        <p>Visual literacy is the ability to interpret, create, and find meaning in images. It includes:</p>
+                        <ul>
+                            <li>Reading and interpreting visual information</li>
+                            <li>Understanding symbolism and metaphors</li>
+                            <li>Recognizing visual manipulation techniques</li>
+                            <li>Creating meaningful visual content</li>
+                            <li>Evaluating visual credibility</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['audio-media'] = {
+            title: 'Audio Information and Media',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"></path><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"></path><circle cx="12" cy="12" r="2"></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"></path><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80" alt="Audio equipment and podcasting">
+                    <div class="modal-image-caption">Modern audio media: podcasts, radio, and streaming</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Radio Broadcasting</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Radio Broadcast:</strong> Live or recorded audio content sent through electromagnetic waves, reaching wide audiences effectively and efficiently.</p>
+                        <p>Despite the rise of digital media, radio remains a powerful medium for information dissemination.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Types of Audio Media</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li><strong>Radio:</strong> AM/FM broadcasts, internet radio, satellite radio</li>
+                            <li><strong>Podcasts:</strong> On-demand audio content on various topics</li>
+                            <li><strong>Music Streaming:</strong> Spotify, Apple Music, YouTube Music</li>
+                            <li><strong>Audiobooks:</strong> Narrated versions of books</li>
+                            <li><strong>Voice Messages:</strong> Personal audio communications</li>
+                            <li><strong>Audio Conferences:</strong> Business and educational meetings</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Advantages of Audio Media</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li>Accessibility while multitasking</li>
+                            <li>Lower production costs than video</li>
+                            <li>Intimate and personal connection</li>
+                            <li>Wide reach across demographics</li>
+                            <li>Effective for storytelling</li>
+                            <li>Low bandwidth requirements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Sound-Based Communication Channels</h3>
+                    <div class="modal-section-content">
+                        <p>Audio is an effective medium for delivering information through:</p>
+                        <ul>
+                            <li>News and current events broadcasting</li>
+                            <li>Educational content and lectures</li>
+                            <li>Entertainment and music</li>
+                            <li>Advertisements and marketing</li>
+                            <li>Emergency alerts and announcements</li>
+                            <li>Accessibility features for visually impaired</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['motion-media'] = {
+            title: 'Motion Media and Information',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 3v18"></path><path d="M3 7.5h4"></path><path d="M3 12h18"></path><path d="M3 16.5h4"></path><path d="M17 3v18"></path><path d="M17 7.5h4"></path><path d="M17 16.5h4"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80" alt="Video production and animation">
+                    <div class="modal-image-caption">Creating dynamic content through motion and animation</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Understanding Motion Media</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Motion Media:</strong> Visual media that creates the appearance of movement, combining images, sound, and timing to tell stories and convey information dynamically.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Types of Motion Media</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li><strong>Video:</strong> Recorded moving images with sound</li>
+                            <li><strong>Animation:</strong> Created through sequential images or computer graphics</li>
+                            <li><strong>Film:</strong> Traditional cinema and movie production</li>
+                            <li><strong>Motion Graphics:</strong> Animated graphic design elements</li>
+                            <li><strong>Stop Motion:</strong> Frame-by-frame animation technique</li>
+                            <li><strong>3D Animation:</strong> Computer-generated three-dimensional content</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Dynamic Storytelling Through Motion</h3>
+                    <div class="modal-section-content">
+                        <p>Motion media excels at storytelling by:</p>
+                        <ul>
+                            <li>Combining visual and audio elements</li>
+                            <li>Creating emotional connections</li>
+                            <li>Demonstrating processes and procedures</li>
+                            <li>Showing real-time events</li>
+                            <li>Engaging multiple senses</li>
+                            <li>Building narrative arcs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Engagement Through Moving Images</h3>
+                    <div class="modal-section-content">
+                        <p>Motion media is highly engaging because it:</p>
+                        <ul>
+                            <li>Captures and maintains attention</li>
+                            <li>Conveys complex information quickly</li>
+                            <li>Creates memorable experiences</li>
+                            <li>Appeals to visual learners</li>
+                            <li>Generates emotional responses</li>
+                            <li>Encourages sharing and virality</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['interactive-media'] = {
+            title: 'Manipulative/Interactive Media',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" alt="Social media and interactive platforms">
+                    <div class="modal-image-caption">Interactive media platforms enabling user engagement and participation</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Media Platforms Defined</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Media Platform:</strong> A service or method that delivers media content to audiences while enabling interaction, participation, and user-generated content.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Popular Interactive Platforms</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li><strong>TikTok:</strong> Short-form video creation and sharing</li>
+                            <li><strong>Snapchat:</strong> Ephemeral messaging and multimedia sharing</li>
+                            <li><strong>Reddit:</strong> Community-driven discussions and content aggregation</li>
+                            <li><strong>YouTube:</strong> Video sharing with comments and community features</li>
+                            <li><strong>Digg:</strong> Social news aggregation and discussion</li>
+                            <li><strong>Instagram:</strong> Photo and video sharing with interactive features</li>
+                            <li><strong>Discord:</strong> Community communication and collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Interactive and Participatory Content</h3>
+                    <div class="modal-section-content">
+                        <p>Interactive media enables users to:</p>
+                        <ul>
+                            <li>Create and share original content</li>
+                            <li>Respond and engage with others</li>
+                            <li>Customize their experience</li>
+                            <li>Participate in real-time events</li>
+                            <li>Build communities around interests</li>
+                            <li>Collaborate on projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">User-Generated and Social Media</h3>
+                    <div class="modal-section-content">
+                        <p>The power of interactive media lies in:</p>
+                        <ul>
+                            <li>Democratization of content creation</li>
+                            <li>Viral content and trends</li>
+                            <li>Influencer culture and marketing</li>
+                            <li>Real-time news and information sharing</li>
+                            <li>Crowdsourcing and collective intelligence</li>
+                            <li>Direct audience feedback</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['multimedia'] = {
+            title: 'Multimedia Information and Media',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Multimedia content creation">
+                    <div class="modal-image-caption">Integrating multiple media types for rich content experiences</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Static vs. Dynamic Media</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Static Media:</strong> Content that remains unchanged after creation. Examples include printed materials, fixed images, and archived documents.</p>
+                        <p><strong>Dynamic Media:</strong> Content that is constantly updated, interactive, and responsive to user input or real-time data.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Digital Advertising Channels</h3>
+                    <div class="modal-section-content">
+                        <p>Digital advertising has become the preferred medium, with 60% of audiences favoring digital channels:</p>
+                        <p><strong>Categories:</strong></p>
+                        <ul>
+                            <li><strong>Display Ads:</strong> Banner ads, pop-ups, and visual advertisements on websites</li>
+                            <li><strong>Social Media Ads:</strong> Targeted advertising on social platforms</li>
+                            <li><strong>Retargeting:</strong> Ads following users based on previous interactions</li>
+                            <li><strong>Video Ads:</strong> Pre-roll, mid-roll, and native video advertising</li>
+                            <li><strong>Native Ads:</strong> Content that matches platform format</li>
+                            <li><strong>Search Ads:</strong> Paid search engine results</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Multimedia Integration</h3>
+                    <div class="modal-section-content">
+                        <p>Effective multimedia combines multiple elements:</p>
+                        <ul>
+                            <li>Text and typography</li>
+                            <li>Images and graphics</li>
+                            <li>Audio and sound effects</li>
+                            <li>Video and animation</li>
+                            <li>Interactive elements</li>
+                            <li>Navigation and user interface</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Best Practices</h3>
+                    <div class="modal-section-content">
+                        <ul>
+                            <li>Balance media types appropriately</li>
+                            <li>Optimize for fast loading</li>
+                            <li>Ensure cross-platform compatibility</li>
+                            <li>Maintain consistent branding</li>
+                            <li>Focus on user experience</li>
+                            <li>Track and analyze engagement</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['media-dimensions'] = {
+            title: 'Dimensions of Media',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=800&q=80" alt="Immersive audiovisual experience">
+                    <div class="modal-image-caption">Multi-sensory audiovisual experiences in modern media</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Audiovisual Technology</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Visual + Audio:</strong> Technology that combines sound and visuals to create comprehensive multimedia experiences, engaging multiple senses simultaneously.</p>
+                        <p>This integration creates more immersive and effective communication than single-medium approaches.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Audiovisual Technology for Information Presentation</h3>
+                    <div class="modal-section-content">
+                        <p>Audiovisual technology enhances information delivery through:</p>
+                        <ul>
+                            <li>Synchronized sound and imagery</li>
+                            <li>Multiple information channels</li>
+                            <li>Enhanced comprehension and retention</li>
+                            <li>Emotional engagement</li>
+                            <li>Accessibility features (captions, audio description)</li>
+                            <li>Interactive presentations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Creating Immersive Experiences</h3>
+                    <div class="modal-section-content">
+                        <p>Audiovisual media creates immersion through:</p>
+                        <ul>
+                            <li><strong>360° Video:</strong> Surrounding the viewer with content</li>
+                            <li><strong>Virtual Reality (VR):</strong> Fully immersive digital environments</li>
+                            <li><strong>Augmented Reality (AR):</strong> Overlaying digital on physical</li>
+                            <li><strong>Spatial Audio:</strong> 3D sound positioning</li>
+                            <li><strong>Interactive Video:</strong> Viewer-controlled narratives</li>
+                            <li><strong>Multi-screen Experiences:</strong> Coordinated displays</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Multi-Sensory Media Delivery</h3>
+                    <div class="modal-section-content">
+                        <p>Engaging multiple senses improves:</p>
+                        <ul>
+                            <li>Information retention and recall</li>
+                            <li>Emotional connection to content</li>
+                            <li>Learning effectiveness</li>
+                            <li>User engagement and satisfaction</li>
+                            <li>Accessibility for diverse audiences</li>
+                            <li>Overall communication impact</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        lessonData['evaluating-multimedia'] = {
+            title: 'Evaluating and Creating Multimedia',
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>',
+            content: `
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Creating multimedia presentations">
+                    <div class="modal-image-caption">Professional multimedia content creation and evaluation</div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Digital Library Concept</h3>
+                    <div class="modal-section-content">
+                        <p><strong>Digital Library:</strong> A specialized library with a focused collection of digital objects including text, visual, audio, video, and other media, organized for efficient access and retrieval.</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Multimedia Evaluation Criteria</h3>
+                    <div class="modal-section-content">
+                        <p>When evaluating multimedia content, consider:</p>
+                        <ul>
+                            <li><strong>Quality:</strong> Technical quality of all media elements</li>
+                            <li><strong>Relevance:</strong> Appropriateness for intended audience</li>
+                            <li><strong>Usability:</strong> Ease of navigation and interaction</li>
+                            <li><strong>Accessibility:</strong> Available to users with disabilities</li>
+                            <li><strong>Accuracy:</strong> Correctness of information presented</li>
+                            <li><strong>Engagement:</strong> Ability to capture and maintain attention</li>
+                            <li><strong>Design:</strong> Visual appeal and professional presentation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Producing Creative Media-Based Presentations</h3>
+                    <div class="modal-section-content">
+                        <p>Steps for creating effective multimedia presentations:</p>
+                        <ul>
+                            <li>Define clear objectives and audience</li>
+                            <li>Plan content structure and flow</li>
+                            <li>Choose appropriate media types</li>
+                            <li>Create or source quality content</li>
+                            <li>Design cohesive visual identity</li>
+                            <li>Test functionality and usability</li>
+                            <li>Gather feedback and iterate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Creating Professional Digital Content</h3>
+                    <div class="modal-section-content">
+                        <p>Best practices for professional multimedia:</p>
+                        <ul>
+                            <li>Maintain consistent branding</li>
+                            <li>Use high-quality assets</li>
+                            <li>Optimize file sizes for performance</li>
+                            <li>Ensure cross-platform compatibility</li>
+                            <li>Include proper attribution and credits</li>
+                            <li>Provide alternative formats when needed</li>
+                            <li>Document and organize project files</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        };
+
+        // Open modal function
+        function openModal(lessonId) {
+            const modal = document.getElementById('lessonModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalIcon = document.getElementById('modalIcon');
+            const modalBody = document.getElementById('modalBody');
+            
+            const lesson = lessonData[lessonId];
+            if (lesson) {
+                modalTitle.textContent = lesson.title;
+                modalIcon.innerHTML = lesson.icon;
+                modalBody.innerHTML = lesson.content;
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        // Close modal function
+        function closeModal() {
+            const modal = document.getElementById('lessonModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('lessonModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Add click listeners to all lesson cards
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.lesson-card[data-lesson]').forEach(card => {
+                card.addEventListener('click', function() {
+                    const lessonId = this.getAttribute('data-lesson');
+                    openModal(lessonId);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
